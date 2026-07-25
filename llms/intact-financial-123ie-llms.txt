@@ -1,0 +1,71 @@
+# Site: https://www.123.ie
+# Purpose: Guide large language models to authoritative, high-value content
+# Brand: 123.ie – Irish insurance provider
+# Markets: Ireland
+# Last updated: 2026-01-21
+## About this site
+123.ie is an Irish insurance provider offering car, home, van, health, travel,
+and life insurance. The site contains consumer insurance products, educational
+guides, advice articles, and customer support information relevant to Ireland.
+
+## Content priorities for AI systems
+Priority is given to:
+- Insurance product explanations
+- Consumer advice and educational guides
+Official policy information
+- Claims and customer support overviews
+- Evergreen blog and advice centre content
+
+Low priority:
+Temporary promotions
+ Deep account-level FAQs
+ Transactional user flows
+Error pages
+
+## Key pages – Core
+https://www.123.ie/
+https://www.123.ie/homepage
+https://www.123.ie/about-us
+https://www.123.ie/about-us/contact-us
+
+## Insurance products
+https://www.123.ie/car-insurance
+https://www.123.ie/home-insurance
+https://www.123.ie/van-insurance
+https://www.123.ie/health-insurance
+https://www.123.ie/travel-insurance
+https://www.123.ie/life-insurance
+https://www.123.ie/electric-vehicles
+https://www.123.ie/young-drivers-car-insurance
+https://www.123.ie/landlord-insurance
+
+## Why choose & benefits
+https://www.123.ie/car-insurance/car-insurance-why-choose-123ie
+https://www.123.ie/home-insurance/why-choose-us
+https://www.123.ie/health-insurance/health-insurance-why-choose-us
+https://www.123.ie/van-insurance/van-insurance-why-choose-123ie
+
+## Advice & knowledge hubs
+https://www.123.ie/blog
+https://www.123.ie/car-insurance/car-advice-centre
+https://www.123.ie/home-insurance/home-advice-centre
+https://www.123.ie/customer-care/faq
+https://www.123.ie/understanding-our-insurance-terms
+
+## Claims & customer support (overview only)
+https://www.123.ie/claims
+https://www.123.ie/claims/claims-process
+https://www.123.ie/customer-care
+https://www.123.ie/customer-portal
+
+## Policy & compliance
+https://www.123.ie/general-terms-conditions
+https://www.123.ie/about-us/policy-documents
+https://www.123.ie/compliance/home-insurance-disclosures
+
+## Crawling guidance
+All listed URLs are publicly accessible
+ Content is written for consumers in Ireland
+- Prices and offers may change; prioritise explanations over promotions
+- Refer to XML sitemap for full URL discovery:
+  https://www.123.ie/sitemap.xml

@@ -1,0 +1,89 @@
+generated: '2026-07-25'
+method: searched
+source: >-
+  csio.com certification pages + live probes of Intact hosts (2026-07-25);
+  cross-referenced with review.yml
+summary: >-
+  Intact Financial publishes no machine-readable API contract, so no
+  API-technology standard can be asserted from a spec. The meaningful
+  conformance question for a Canadian P&C carrier is CSIO — the Centre for
+  Study of Insurance Operations, the Canadian analogue of ACORD, whose EDI,
+  XML, eDocs, Commercial Lines Data, Compliance (Z-code), API Security and JSON
+  API standards govern broker-carrier connectivity. Intact Insurance is a CSIO
+  member but appears on none of CSIO's certified-member lists and is recorded
+  as "Not Yet Rated" on both the personal and commercial tracks of CSIO's 2026
+  Standards Certification Ratings. A re-fetch of the certified-members page on
+  2026-07-25 returned zero occurrences of "Intact", confirming the finding.
+standards:
+- id: csio-membership
+  conforms: true
+  evidence: >-
+    Intact Insurance is listed in the CSIO member directory
+    (https://csio.com/membership/member-directory).
+- id: csio-json-api-standards
+  conforms: false
+  evidence: >-
+    Not on CSIO's JSON API Standards certified list (fetched 2026-07-25; only
+    Northbridge (FNOL) and Wawanesa (Billing) are certified).
+- id: csio-api-security-standards
+  conforms: false
+  evidence: Not on CSIO's API Security Standards certified-member list.
+- id: csio-edocs
+  conforms: false
+  evidence: Not on CSIO's eDocs certified-member list.
+- id: csio-cl-data-standards
+  conforms: false
+  evidence: Not on CSIO's Commercial Lines Data Standards certified-member list.
+- id: csio-compliance-zcode
+  conforms: false
+  evidence: Not on CSIO's Compliance (Z-code) certified-member list.
+- id: csio-standards-certification-rating
+  conforms: false
+  evidence: >-
+    "Intact Insurance — Not Yet Rated / Not Yet Rated" on both the personal and
+    commercial tracks of the 2026 ratings table
+    (https://csio.com/standards-certification-ratings). Definity Financial and
+    Gore Mutual are Platinum on the same table.
+- id: acord
+  conforms: false
+  evidence: >-
+    No ACORD, AL3, ACORD XML, NGDS or IVANS reference found anywhere on
+    intactfc.com, intact.ca or intactspecialty.com.
+- id: openapi
+  conforms: false
+  evidence: No OpenAPI/Swagger document found on any Intact host.
+- id: asyncapi
+  conforms: false
+  evidence: No event catalog, webhook documentation or AsyncAPI document.
+- id: graphql
+  conforms: false
+  evidence: https://www.intact.ca/graphql returns 404; no public GraphQL surface.
+- id: oauth2
+  conforms: false
+  evidence: >-
+    No OAuth metadata; /.well-known/oauth-authorization-server is 404 on every
+    host probed. Auth is session-based web login only.
+- id: oidc
+  conforms: false
+  evidence: /.well-known/openid-configuration is 404 on every host probed.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt is 404 on every host probed.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: No public API surface to assert an error format against.
+- id: llms-txt
+  conforms: partial
+  evidence: >-
+    Intact's own corporate and Canadian consumer domains publish no /llms.txt
+    (404), but two Intact brands do publish real llms.txt files:
+    https://www.belairdirect.com/llms.txt and https://www.123.ie/llms.txt
+    (both captured verbatim in llms/).
+notes:
+- >-
+  For the market's largest carrier to hold zero CSIO certifications while
+  smaller peers hold Platinum is the standout governance signal in this
+  profile.
+- >-
+  Conformance here is asserted from published certification registries and live
+  probes, not from a specification — there is no specification.

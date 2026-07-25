@@ -1,0 +1,87 @@
+generated: '2026-07-25'
+method: searched
+source: live probes of every Intact-controlled host on 2026-07-25
+summary: >-
+  No /.well-known/ discovery document of any kind is published on any Intact
+  Financial host. Every candidate path returned 404 on the corporate site
+  (intactfc.com), the Canadian consumer/broker site (intact.ca), the US
+  specialty site (intactspecialty.com), the broker login wall
+  (portal.intactinsurance.com), the partner gateway host
+  (api.intactspecialty.com), and the brand sites belairdirect.com and
+  brokerlink.ca. There is no security.txt (RFC 9116), no OpenID Connect
+  discovery, no OAuth authorization-server metadata (RFC 8414), no API catalog
+  (RFC 9727) and no ai-plugin.json. Absence is the finding.
+documents: []
+probes:
+- host: https://www.intactfc.com
+  results:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+- host: https://www.intact.ca
+  results:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+- host: https://www.intactspecialty.com
+  results:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+- host: https://portal.intactinsurance.com
+  note: Broker login wall (Drupal). Anonymous requests are 403 at root.
+  results:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+- host: https://api.intactspecialty.com
+  note: >-
+    Host resolves (Azure Front Door, *.z01.azurefd.net) but is a private/partner
+    gateway. 404 at root and at every discovery path.
+  results:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+- host: https://www.belairdirect.com
+  note: Intact direct-to-consumer brand. Publishes /llms.txt but no /.well-known/.
+  results:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+- host: https://www.brokerlink.ca
+  note: Intact-owned brokerage brand.
+  results:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+- host: https://onside.ca
+  note: >-
+    On Side Restoration (Intact-owned). Returns HTTP 200 for
+    /.well-known/security.txt and /llms.txt but the body is the HTML homepage —
+    a soft 404, not a real document. Not recorded as a hit.
+  results:
+  - {path: /.well-known/security.txt, status: 200, soft_404: true}
+- host: https://www.123.ie
+  note: Intact Ireland brand (RSA). Publishes /llms.txt but no /.well-known/.
+  results:
+  - {path: /.well-known/security.txt, status: 404}
+notes:
+- No security.txt means there is no machine-readable vulnerability-disclosure
+  contact for Canada's largest P&C insurer.
+- No OIDC/OAuth metadata is consistent with the review finding that the only
+  authentication surfaces are session-based web login walls (Drupal form login
+  for brokers, IBM Security Access Manager / WebSEAL for customers).
