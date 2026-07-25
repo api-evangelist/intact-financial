@@ -1,0 +1,69 @@
+aid: intact-financial
+url: https://raw.githubusercontent.com/api-evangelist/intact-financial/refs/heads/main/apis.yml
+name: Intact Financial
+kind: company
+description: Intact Financial Corporation is the largest provider of property and
+  casualty insurance in Canada, headquartered in Toronto and trading on the TSX as
+  IFC. It underwrites personal auto, personal property, and commercial P&C lines
+  through the Intact Insurance, belairdirect, BrokerLink, Intact Prestige, Intact
+  Public Entities, and On Side Restoration brands in Canada, through Intact
+  Insurance Specialty Solutions in the United States, and through Intact Insurance
+  UK, EU, IE and 123.ie internationally following the 2021 acquisition of RSA.
+  Distribution runs through a network of more than 6,000 independent broker offices
+  plus direct-to-consumer channels. Its API posture is partner-gated and closed.
+  There is no public, self-serve developer portal, no published API reference, and
+  no downloadable OpenAPI, Swagger, GraphQL, or AsyncAPI artifact on any Intact
+  domain probed. developer/developers/docs/api subdomains on intactfc.com and
+  intact.ca do not resolve; /developers, /api, /developer and /partners return 404.
+  The only integration surfaces are login walls — the Intact Portal for brokers at
+  portal.intactinsurance.com (brokers.intact.ca redirects there) and the customer
+  Client Centre behind IBM Security WebSEAL at apps.intactinsurance.com. Broker
+  connectivity in Canada is mediated by CSIO, the industry standards body whose
+  EDI, XML, eDocs and JSON API standards are the Canadian analogue of ACORD.
+  Intact Insurance is listed in the CSIO member directory but appears on none of
+  CSIO's certified-member lists (eDocs, CL Data, Compliance/Z-code, API Security
+  Standards, JSON API Standards) and is recorded as "Not Yet Rated" on both the
+  personal and commercial tracks of CSIO's 2026 Standards Certification Ratings.
+  No ACORD reference was found anywhere on the company's public web properties.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Insurance
+- Canada
+- Property and Casualty
+- Carrier
+- Underwriting
+- Claims
+- Broker
+- Partner Gated
+- No Public API
+- CSIO
+created: '2026-07-25'
+modified: '2026-07-25'
+specificationVersion: '0.19'
+apis: []
+common:
+- type: Website
+  url: https://www.intactfc.com/
+- type: Website
+  url: https://www.intact.ca/
+- type: Website
+  url: https://www.intactspecialty.com/
+- type: Portal
+  url: https://portal.intactinsurance.com/
+- type: Blog
+  url: https://www.intact.ca/en/blog
+- type: News
+  url: https://www.intactfc.com/news
+- type: About
+  url: https://www.intactfc.com/about-us/who-we-are
+- type: Company
+  url: https://www.intactfc.com/investors/company-overview
+- type: Privacy
+  url: https://www.intactfc.com/privacy
+- type: TermsOfService
+  url: https://www.intactfc.com/terms-and-conditions-of-use
+- type: LinkedIn
+  url: https://www.linkedin.com/company/intact
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

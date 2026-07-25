@@ -1,0 +1,253 @@
+aid: intact-financial
+name: Intact Financial
+review:
+  question: Does Intact Financial expose a public, self-serve developer portal or any
+    downloadable API definition?
+  answer: false
+  date: '2026-07-25'
+  reviewer: API Evangelist
+  homeMarket: Canada
+  tier: carrier-pc
+  specsHarvested: 0
+findings:
+  summary: |
+    Intact Financial Corporation — Canada's largest property and casualty insurer —
+    publishes no public API surface of any kind. There is no developer portal, no API
+    reference, no downloadable OpenAPI/Swagger/GraphQL/AsyncAPI artifact, and no public
+    Postman workspace on any Intact domain probed on 2026-07-25. Every candidate
+    developer host on the primary corporate domain (intactfc.com) and the Canadian
+    consumer/broker domain (intact.ca) either fails DNS resolution or returns 404.
+    The only integration surfaces are authenticated login walls. Broker connectivity
+    in Canada is not a carrier-published REST API at all; it is mediated through CSIO
+    (Centre for Study of Insurance Operations), the Canadian insurance data-standards
+    body whose EDI, XML, eDocs and JSON API standards are this market's analogue of
+    ACORD, carried over the CSIOnet network and consumed inside broker management
+    systems (Applied Epic/TAM, Vertafore SIG, Acturis, Rival TBW). Intact Insurance
+    is listed in the CSIO member directory but appears on NONE of CSIO's certified
+    member lists and is recorded as "Not Yet Rated" on CSIO's 2026 Standards
+    Certification Ratings — a notable finding for the market's largest carrier, and
+    a sharp contrast with peers Definity (Platinum) and Gore Mutual (Platinum).
+  developerPortal:
+    exists: false
+    url: ''
+    classification: none
+    note: |
+      No first-party developer portal exists. What Intact operates instead is a
+      partner/agent login wall (classification b) plus a marketing innovation page
+      (classification c). Both are recorded below.
+  probes:
+    - url: https://developer.intactfc.com
+      status: 000
+      note: DNS does not resolve (no A record).
+    - url: https://developers.intactfc.com
+      status: 000
+      note: DNS does not resolve.
+    - url: https://docs.intactfc.com
+      status: 000
+      note: DNS does not resolve.
+    - url: https://api.intactfc.com
+      status: 000
+      note: DNS does not resolve.
+    - url: https://www.intactfc.com/
+      status: 200
+      note: Corporate/investor site. Craft CMS. WAF returns 405 to non-browser user agents.
+    - url: https://www.intactfc.com/developers
+      status: 404
+    - url: https://www.intactfc.com/developer
+      status: 404
+    - url: https://www.intactfc.com/api
+      status: 404
+    - url: https://www.intactfc.com/partners
+      status: 404
+    - url: https://www.intactfc.com/integrations
+      status: 404
+    - url: https://developer.intact.ca
+      status: 000
+      note: DNS does not resolve.
+    - url: https://api.intact.ca
+      status: 000
+      note: DNS does not resolve.
+    - url: https://apis.intact.ca
+      status: 000
+      note: DNS does not resolve.
+    - url: https://www.intact.ca/
+      status: 200
+      note: Redirects to /en/personal-insurance. Consumer marketing + quote funnel.
+    - url: https://www.intact.ca/api
+      status: 404
+    - url: https://brokers.intact.ca/
+      status: 301
+      note: Redirects to https://portal.intactinsurance.com/ — the broker login wall.
+    - url: https://portal.intactinsurance.com/
+      status: 403
+      note: |
+        Drupal application titled "Log in | Intact Portal". Anonymous role, login form
+        only. No API documentation, no registration for developers. LOGIN WALL.
+    - url: https://client.intact.ca/
+      status: 200
+      note: |
+        Redirects to https://apps.intactinsurance.com/waa/WAA/webseal.do?TAM_OP=login
+        — customer Client Centre behind IBM Security Access Manager (WebSEAL). LOGIN WALL.
+    - url: https://api.intactspecialty.com/
+      status: 404
+      note: |
+        Host DOES resolve (Azure Front Door, *.z01.azurefd.net) but returns 404 at root
+        and at /openapi.json, /swagger.json, /api-docs, /v1/openapi.json, /health and
+        /.well-known/openid-configuration. A private/partner gateway, not a public API.
+    - url: https://www.intactspecialty.com/
+      status: 200
+      note: US specialty arm. www.intactinsurance.com redirects here. No /api, /developers,
+        /agents or /producers path (all 404).
+    - url: https://developer.intactinsurance.com
+      status: 000
+      note: DNS does not resolve.
+    - url: https://www.intactfc.com/about-us/intact-lab
+      status: 200
+      note: |
+        Intact Lab — marketing innovation page (ML/data science/AI, "575+ AI models in
+        production", "biggest insurance data lab in Canada"). No APIs, no docs, no specs.
+        MARKETING PAGE, classification (c).
+    - url: https://www.intact.ca/en/partnerships
+      status: 200
+      note: Sports sponsorship (Team Canada, Speed Skating Canada) — not API partnerships.
+    - url: https://www.intact.ca/en/broker-advantage
+      status: 200
+      note: Consumer-facing explainer of the 6,000+ independent broker network and
+        broker compensation. No technical integration content.
+  specHunt:
+    attempted:
+      - https://api.intactspecialty.com/openapi.json
+      - https://api.intactspecialty.com/swagger.json
+      - https://api.intactspecialty.com/api-docs
+      - https://api.intactspecialty.com/v1/openapi.json
+    result: |
+      All 404. No OpenAPI, Swagger, RAML, GraphQL SDL, .proto or AsyncAPI document was
+      found on any Intact-controlled host. Zero specs harvested; the openapi/ directory
+      is intentionally absent from this repo.
+  acordPosture:
+    phrase: No ACORD reference found; CSIO member but "Not Yet Rated" and on no CSIO
+      certified list
+    detail: |
+      Canada's insurance data-standards body is CSIO (Centre for Study of Insurance
+      Operations), not ACORD directly; CSIO publishes EDI, XML, eDocs, Commercial Lines
+      and JSON API standards plus API Security Standards, and runs CSIOnet as the
+      broker-carrier transport. A site search for "CSIO" on www.intact.ca returns zero
+      results, and no ACORD, AL3, ACORD XML, NGDS or IVANS reference appears anywhere
+      on intactfc.com, intact.ca or intactspecialty.com.
+      Intact Insurance IS listed in the CSIO member directory
+      (https://csio.com/membership/member-directory), but:
+        - it appears on NO CSIO certified-member list — not API Security Standards
+          Certified, not CL Data Standards Certified, not Compliance (Z-code) Certified,
+          not eDocs Certified, and not JSON API Standards Certified
+          (https://csio.com/csio-certification/certified-members, fetched 2026-07-25);
+        - CSIO's 2026 Standards Certification Ratings record "Intact Insurance —
+          Not Yet Rated / Not Yet Rated" on both the personal and commercial tracks
+          (https://csio.com/standards-certification-ratings, fetched 2026-07-25).
+      For contrast, Definity Financial and Gore Mutual are rated Platinum on the same
+      table, and only Northbridge (FNOL) and Wawanesa (Billing) are certified against
+      CSIO's JSON API Standards at all. Intact's broker connectivity therefore runs on
+      legacy CSIO EDI/XML download into broker management systems and on the gated
+      Intact Portal, not on a published, certified API.
+  insuranceVerbs:
+    quote:
+      publicAPI: false
+      note: Consumer quote funnels exist as web forms on intact.ca and belairdirect.com;
+        no documented quote API. Broker rating happens inside the gated Intact Portal
+        or via BMS/CSIO transport.
+    bind:
+      publicAPI: false
+    issue:
+      publicAPI: false
+    fnol:
+      publicAPI: false
+      note: Claims are filed via web/app/phone or through a broker; no public FNOL API.
+        Intact is not on CSIO's JSON API FNOL certified list.
+    audience: partner-only (independent brokers) and consumer self-service; no
+      third-party developer audience is served.
+  authModel:
+    scheme: Session-based web login only
+    details: |
+      Broker portal (portal.intactinsurance.com) is a Drupal form login. Customer Client
+      Centre is fronted by IBM Security Access Manager / WebSEAL (TAM_OP=login). No
+      OAuth2, no API keys, no mTLS documented publicly.
+    wellKnown:
+      - url: https://www.intact.ca/.well-known/openid-configuration
+        status: 404
+      - url: https://www.intactfc.com/.well-known/openid-configuration
+        status: 404
+      - url: https://portal.intactinsurance.com/.well-known/openid-configuration
+        status: 404
+      - url: https://api.intactspecialty.com/.well-known/oauth-authorization-server
+        status: 404
+  webhooks:
+    documented: false
+    note: No event catalog, no AsyncAPI, no webhook documentation. Absence is the finding.
+  postman:
+    public: false
+    note: No public Postman workspace or collection found.
+  graphql:
+    documented: false
+    note: https://www.intact.ca/graphql returns 404. No public GraphQL surface.
+  grpc:
+    documented: false
+  sourceCode:
+    githubOrganization: none
+    note: |
+      GitHub organizations intact-financial, intactfc, intactinsurance, intact-lab and
+      intact-data-lab all return 404. No public source presence.
+  transports:
+    - protocol: HTTPS web application
+      documented: true
+      note: Marketing sites, consumer quote funnels, and two authenticated portals.
+    - protocol: CSIO EDI / CSIO XML over CSIOnet
+      documented: false
+      note: |
+        Industry-standard broker-carrier transport in Canada. Intact is a CSIO member but
+        holds no CSIO certification and is Not Yet Rated, so the depth of its standards
+        implementation is not publicly verifiable.
+    - protocol: REST (public)
+      documented: false
+      note: No public REST API is documented on any Intact host.
+    - protocol: GraphQL
+      documented: false
+    - protocol: WebSocket
+      documented: false
+sources:
+  - url: https://www.intactfc.com/about-us/brands
+    type: Website
+    note: Brand list — Intact Insurance, belairdirect, BrokerLink, Intact Prestige,
+      Intact Insurance Specialty Solutions, Intact Public Entities, On Side Restoration,
+      Jiffy (Canada); Intact Insurance Specialty Solutions (US); Intact Insurance UK/EU/IE
+      and 123.ie (UK & International).
+  - url: https://www.intactfc.com/about-us/who-we-are
+    type: Website
+    note: Purpose, values and 10-year strategy; confirms Canada / UK & Ireland / US footprint.
+  - url: https://www.intactfc.com/about-us/intact-lab
+    type: Website
+    note: Innovation-lab marketing page. No API or developer content.
+  - url: https://www.intact.ca/en/broker-advantage
+    type: Website
+    note: "\"We work with more than 6,000 independent insurance broker offices across Canada.\""
+  - url: https://csio.com/csio-certification/certified-members
+    type: Standards
+    note: Certified-member lists fetched 2026-07-25. Intact appears on none of them.
+  - url: https://csio.com/standards-certification-ratings
+    type: Standards
+    note: 2026 ratings table fetched 2026-07-25. "Intact Insurance — Not Yet Rated /
+      Not Yet Rated"; Definity and Gore Mutual are Platinum.
+  - url: https://csio.com/membership/member-directory
+    type: Standards
+    note: Intact Insurance is listed as a CSIO member.
+  - url: https://portal.intactinsurance.com/
+    type: Portal
+    note: "\"Log in | Intact Portal\" — broker login wall, HTTP 403 anonymous."
+actions:
+  openapiHarvested: false
+  specsCount: 0
+  apisYmlApis: 0
+  gated: true
+  reason: |
+    Intact Financial is a correct and deliberate STUB. The largest P&C carrier in Canada
+    publishes no self-serve API surface. Recording that honestly — with the CSIO
+    "Not Yet Rated" signal attached — is the finding. apis[] is empty because there is
+    nothing real to list, and openapi/ is omitted because nothing real was harvested.
