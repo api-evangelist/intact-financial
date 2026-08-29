@@ -25,6 +25,17 @@ description: Intact Financial Corporation is the largest provider of property an
   Standards, JSON API Standards) and is recorded as "Not Yet Rated" on both the
   personal and commercial tracks of CSIO's 2026 Standards Certification Ratings.
   No ACORD reference was found anywhere on the company's public web properties.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Insurance
