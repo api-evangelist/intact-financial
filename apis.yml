@@ -56,7 +56,6 @@ tags:
 - Carrier
 - Underwriting
 - Claims
-- Brokers
 - Partner Gated
 - No Public API
 - CSIO
@@ -67,7 +66,6 @@ tags_raw:
 - Carrier
 - Underwriting
 - Claims
-- Broker
 - Partner Gated
 - No Public API
 - CSIO
@@ -125,3 +123,5 @@ common:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-tags-removed:
+- Brokers
