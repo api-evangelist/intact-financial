@@ -42,6 +42,9 @@ accessModel:
   trial: false
   try_now: false
   public: false
+  gated: partner
+  gated_source:
+  - tag:Partner Gated
   label: Unknown
   confidence: low
   source:
@@ -56,8 +59,6 @@ tags:
 - Carrier
 - Underwriting
 - Claims
-- Partner Gated
-- No Public API
 - CSIO
 tags_raw:
 - Insurance
@@ -66,8 +67,6 @@ tags_raw:
 - Carrier
 - Underwriting
 - Claims
-- Partner Gated
-- No Public API
 - CSIO
 created: '2026-07-25'
 modified: '2026-07-25'
@@ -125,3 +124,5 @@ maintainers:
   email: kin@apievangelist.com
 x-tags-removed:
 - Brokers
+- No Public API
+- Partner Gated
