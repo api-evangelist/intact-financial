@@ -1,0 +1,11 @@
+[
+  {
+    "repo": "intact-financial",
+    "captured_at": "2026-10-11T190820",
+    "source_url": "https://portal.intactinsurance.com/",
+    "source_type": "Portal",
+    "file": "intact-financial-2026-10-11T190820.png",
+    "bytes": 50053,
+    "capture": "playwright-local"
+  }
+]
