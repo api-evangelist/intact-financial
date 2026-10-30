@@ -1,4 +1,4 @@
-# Intact Financial (intact-financial)
+# Intact Financial
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,62 +64,83 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Intact Financial Corporation is the largest provider of property and casualty insurance in Canada, headquartered in Toronto and trading on the TSX as IFC. It underwrites personal auto, personal property, and commercial P&C lines through the Intact Insurance, belairdirect, BrokerLink, Intact Prestige, Intact Public Entities, and On Side Restoration brands in Canada, through Intact Insurance Specialty Solutions in the United States, and through Intact Insurance UK, EU, IE and 123.ie internationally following the 2021 acquisition of RSA. Distribution runs through a network of more than 6,000 independent broker offices plus direct-to-consumer channels.
+Intact Financial Corporation is the largest provider of property and casualty insurance in Canada, headquartered in Toronto and trading on the TSX as IFC. It underwrites personal auto, personal property, and commercial P&C lines through the Intact Insurance, belairdirect, BrokerLink, Intact Prestige, Intact Public Entities, and On Side Restoration brands in Canada, through Intact Insurance Specialty Solutions in the United States, and through Intact Insurance UK, EU, IE and 123.ie internationally following the 2021 acquisition of RSA. Distribution runs through a network of more than 6,000 independent broker offices plus direct-to-consumer channels. Its API posture is partner-gated and closed. There is no public, self-serve developer portal, no published API reference, and no downloadable OpenAPI, Swagger, GraphQL, or AsyncAPI artifact on any Intact domain probed. developer/developers/docs/api subdomains on intactfc.com and intact.ca do not resolve; /developers, /api, /developer and /partners return 404. The only integration surfaces are login walls — the Intact Portal for brokers at portal.intactinsurance.com (brokers.intact.ca redirects there) and the customer Client Centre behind IBM Security WebSEAL at apps.intactinsurance.com. Broker connectivity in Canada is mediated by CSIO, the industry standards body whose EDI, XML, eDocs and JSON API standards are the Canadian analogue of ACORD. Intact Insurance is listed in the CSIO member directory but appears on none of CSIO's certified-member lists (eDocs, CL Data, Compliance/Z-code, API Security Standards, JSON API Standards) and is recorded as "Not Yet Rated" on both the personal and commercial tracks of CSIO's 2026 Standards Certification Ratings. No ACORD reference was found anywhere on the company's public web properties.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/intact-financial/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/intact-financial/refs/heads/main/apis.yml)
+**Areas:** Insurance · Canada · Property and Casualty · Carrier · Underwriting · Claims · CSIO
 
-## Tags
+## Intact Financial on APIs.io
 
-- Insurance
-- Canada
-- Property and Casualty
-- Carrier
-- Underwriting
-- Claims
-- Broker
-- Partner Gated
-- No Public API
-- CSIO
+Everything profiled for Intact Financial is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/intact-financial/](https://apis.io/providers/intact-financial/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-07-25
-- **Modified:** 2026-07-25
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Security (1)
 
-None.
+Authentication, trust centre, and vulnerability disclosure.
 
-Intact Financial publishes **no public, self-serve API surface**. This repository is an honest stub, and that absence is the finding.
+- [Intact Financial Domain Security](https://apis.io/security/intact-financial/intact-financial-domain-security/)
 
-- No developer portal. `developer.`, `developers.`, `docs.` and `api.` subdomains on both `intactfc.com` and `intact.ca` fail to resolve; `/developers`, `/developer`, `/api`, `/partners` and `/integrations` all return 404.
-- No downloadable API definition. Zero OpenAPI, Swagger, GraphQL SDL, `.proto` or AsyncAPI documents were found, so this repo has no `openapi/` directory.
-- The only integration surfaces are login walls — the broker **Intact Portal** at [portal.intactinsurance.com](https://portal.intactinsurance.com/) (`brokers.intact.ca` 301-redirects there), and the customer **Client Centre** behind IBM Security WebSEAL at `apps.intactinsurance.com`.
-- `api.intactspecialty.com` resolves to an Azure Front Door endpoint but returns 404 at the root and at every spec path probed — a private partner gateway, not a public API.
-- No public GitHub organization, no public Postman workspace, no documented webhooks or event catalog, and no OIDC/OAuth discovery document on any host.
-- Auth model is session-based web login only. No API keys, no OAuth2, no mTLS documented publicly.
+## Where to find this API
 
-### Standards posture (the sector signal)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-Canada's insurance data-standards body is **CSIO** (Centre for Study of Insurance Operations) rather than ACORD directly; CSIO publishes EDI, XML, eDocs, Commercial Lines and JSON API standards plus API Security Standards, and runs CSIOnet as the broker-carrier transport.
-
-- **No ACORD, AL3, NGDS or IVANS reference** appears anywhere on `intactfc.com`, `intact.ca` or `intactspecialty.com`. A site search for "CSIO" on `intact.ca` returns zero results.
-- Intact Insurance **is** listed in the [CSIO member directory](https://csio.com/membership/member-directory), but appears on **none** of CSIO's [certified-member lists](https://csio.com/csio-certification/certified-members) — not API Security Standards, not CL Data Standards, not Compliance (Z-code), not eDocs, not JSON API Standards.
-- CSIO's [2026 Standards Certification Ratings](https://csio.com/standards-certification-ratings) record **"Intact Insurance — Not Yet Rated / Not Yet Rated"** on both the personal and commercial tracks, while peers Definity and Gore Mutual hold Platinum.
-
-None of the four insurance API verbs — quote, bind, issue, FNOL — is exposed publicly. Broker rating and claims run inside the gated portal or over legacy CSIO EDI/XML into broker management systems (Applied Epic/TAM, Vertafore SIG, Acturis, Rival TBW).
-
-## Links
-
-- [Corporate site](https://www.intactfc.com/)
-- [Intact Insurance (Canada)](https://www.intact.ca/)
-- [Intact Insurance Specialty Solutions (US)](https://www.intactspecialty.com/)
-- [Intact Portal (broker login)](https://portal.intactinsurance.com/)
+- [Website](https://www.intactfc.com/)
+- [Support](https://www.intact.ca/en/contact-us)
 - [Blog](https://www.intact.ca/en/blog)
-- [Newsroom](https://www.intactfc.com/news)
-- [Company overview](https://www.intactfc.com/investors/company-overview)
-- [LinkedIn](https://www.linkedin.com/company/intact)
+- [Terms of service](https://www.intactfc.com/terms-and-conditions-of-use)
+- [Privacy policy](https://www.intactfc.com/privacy)
 
-## Review
+## API Evangelist rating
 
-See [review.yml](review.yml) for the full probe log, HTTP statuses, CSIO standards posture, auth model, and reviewer findings (API Evangelist, 2026-07-25).
+**Kin Score 12.0** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 56.3 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 13.1 |
+| Access clarity | 10.5 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 13.2** — Insurance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/intact-financial/](https://apis.io/providers/intact-financial/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Intact Financial: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/intact-financial/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
